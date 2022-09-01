@@ -14,7 +14,7 @@ namespace API_Client
     {
         private static string _connectionString = "https://gorest.co.in/";
         private static string _apiKey = "a9abdb97d74688ffb0256f87789b2362162c59934a01ea313add99312aab5c4f";
-        private static string _usersPath = "public/v2/users";
+        private string _objPath;
         private RestClient _client;
         private static MyClient _myClient;
         public int currentPage;
@@ -39,7 +39,7 @@ namespace API_Client
 
         public async Task<List<DTO.Error>?> PostObjAsync<T>(T data)
         {
-            var _request = new RestRequest(_usersPath);
+            var _request = new RestRequest(_objPath);
 
             if (data is not null)
             {
@@ -61,7 +61,7 @@ namespace API_Client
 
         public async Task<List<DTO.Error>?> PatchObjAsync<T>(T data, int objectId)
         {
-            var _request = new RestRequest(_usersPath + $"/{objectId}");
+            var _request = new RestRequest(_objPath + $"/{objectId}");
 
             if (data is not null)
             {
@@ -83,7 +83,7 @@ namespace API_Client
 
         public async Task<List<DTO.Error>?> DeleteObjAsync<T>(int objectId)
         {
-            var _request = new RestRequest(_usersPath + $"/{objectId}");
+            var _request = new RestRequest(_objPath + $"/{objectId}");
 
             if (objectId > 0)
             {
@@ -104,7 +104,7 @@ namespace API_Client
 
         public async Task<T> GetObjAsync<T>(int objectId)
         {
-            var request = new RestRequest(_usersPath + $"/{objectId}");
+            var request = new RestRequest(_objPath + $"/{objectId}");
             RestResponse restResponse = await _myClient._client.ExecuteAsync(request);
             if (restResponse.Content != null)
             {
@@ -118,7 +118,15 @@ namespace API_Client
 
         public async Task<List<T>?> GetListObjAsync<T>(int page)
         {
-            var request = new RestRequest(_usersPath + "?page=" + page);
+            if (typeof(T).Name == "User")
+            {
+                _objPath = "public/v2/users";
+            }
+            else if(typeof(T).Name == "Post")
+            {
+                _objPath = "public/v2/posts";
+            }
+            var request = new RestRequest(_objPath + "?page=" + page);
             RestResponse restResponse = await _myClient._client.ExecuteAsync(request);
             if (restResponse.Content != null && restResponse.Headers != null)
             {

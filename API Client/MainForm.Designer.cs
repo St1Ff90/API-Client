@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.llPosts = new System.Windows.Forms.LinkLabel();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.llUsers = new System.Windows.Forms.LinkLabel();
             this.dgwMain = new System.Windows.Forms.DataGridView();
@@ -48,15 +49,25 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.bsMain = new System.Windows.Forms.BindingSource(this.components);
+            this.PanelPostDetales = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbBody = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.tbUserId = new System.Windows.Forms.TextBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMain)).BeginInit();
             this.panelBotom.SuspendLayout();
             this.PanelUserDetales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMain)).BeginInit();
+            this.PanelPostDetales.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.llPosts);
             this.panelTop.Controls.Add(this.btnAddNew);
             this.panelTop.Controls.Add(this.llUsers);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -66,6 +77,17 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(800, 30);
             this.panelTop.TabIndex = 0;
+            // 
+            // llPosts
+            // 
+            this.llPosts.AutoSize = true;
+            this.llPosts.Location = new System.Drawing.Point(53, 9);
+            this.llPosts.Name = "llPosts";
+            this.llPosts.Size = new System.Drawing.Size(35, 15);
+            this.llPosts.TabIndex = 3;
+            this.llPosts.TabStop = true;
+            this.llPosts.Text = "Posts";
+            this.llPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llPosts_LinkClicked);
             // 
             // btnAddNew
             // 
@@ -86,7 +108,7 @@
             this.llUsers.TabIndex = 1;
             this.llUsers.TabStop = true;
             this.llUsers.Text = "Users";
-            this.llUsers.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.llUsers.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llUsers_LinkClicked);
             // 
             // dgwMain
             // 
@@ -95,11 +117,11 @@
             this.dgwMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwMain.Location = new System.Drawing.Point(0, 84);
+            this.dgwMain.Location = new System.Drawing.Point(0, 142);
             this.dgwMain.Name = "dgwMain";
             this.dgwMain.RowHeadersVisible = false;
             this.dgwMain.RowTemplate.Height = 25;
-            this.dgwMain.Size = new System.Drawing.Size(800, 333);
+            this.dgwMain.Size = new System.Drawing.Size(800, 275);
             this.dgwMain.TabIndex = 1;
             this.dgwMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMain_CellContentClick);
             // 
@@ -131,7 +153,7 @@
             this.nextPage.TabIndex = 1;
             this.nextPage.Text = "Next";
             this.nextPage.UseVisualStyleBackColor = true;
-            this.nextPage.Click += new System.EventHandler(this.nextPage_Click);
+            this.nextPage.Click += new System.EventHandler(this.NextPage_Click);
             // 
             // prevPage
             // 
@@ -141,7 +163,7 @@
             this.prevPage.TabIndex = 0;
             this.prevPage.Text = "Previous";
             this.prevPage.UseVisualStyleBackColor = true;
-            this.prevPage.Click += new System.EventHandler(this.prevPage_Click);
+            this.prevPage.Click += new System.EventHandler(this.PrevPage_Click);
             // 
             // PanelUserDetales
             // 
@@ -236,12 +258,86 @@
             this.tbName.Size = new System.Drawing.Size(142, 23);
             this.tbName.TabIndex = 0;
             // 
+            // PanelPostDetales
+            // 
+            this.PanelPostDetales.Controls.Add(this.button1);
+            this.PanelPostDetales.Controls.Add(this.label7);
+            this.PanelPostDetales.Controls.Add(this.tbBody);
+            this.PanelPostDetales.Controls.Add(this.label5);
+            this.PanelPostDetales.Controls.Add(this.label6);
+            this.PanelPostDetales.Controls.Add(this.tbTitle);
+            this.PanelPostDetales.Controls.Add(this.tbUserId);
+            this.PanelPostDetales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelPostDetales.Location = new System.Drawing.Point(0, 84);
+            this.PanelPostDetales.Name = "PanelPostDetales";
+            this.PanelPostDetales.Size = new System.Drawing.Size(800, 58);
+            this.PanelPostDetales.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(665, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 36);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Save changes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(411, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Body";
+            // 
+            // tbBody
+            // 
+            this.tbBody.Location = new System.Drawing.Point(411, 21);
+            this.tbBody.Name = "tbBody";
+            this.tbBody.Size = new System.Drawing.Size(245, 23);
+            this.tbBody.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(160, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Title";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 15);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "User ID";
+            // 
+            // tbTitle
+            // 
+            this.tbTitle.Location = new System.Drawing.Point(160, 21);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(245, 23);
+            this.tbTitle.TabIndex = 10;
+            // 
+            // tbUserId
+            // 
+            this.tbUserId.Location = new System.Drawing.Point(12, 21);
+            this.tbUserId.Name = "tbUserId";
+            this.tbUserId.Size = new System.Drawing.Size(142, 23);
+            this.tbUserId.TabIndex = 9;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgwMain);
+            this.Controls.Add(this.PanelPostDetales);
             this.Controls.Add(this.PanelUserDetales);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelBotom);
@@ -255,6 +351,8 @@
             this.PanelUserDetales.ResumeLayout(false);
             this.PanelUserDetales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMain)).EndInit();
+            this.PanelPostDetales.ResumeLayout(false);
+            this.PanelPostDetales.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +378,14 @@
         private ComboBox cbGeender;
         private TextBox tbEmail;
         private Button btnAddNew;
+        private LinkLabel llPosts;
+        private Panel PanelPostDetales;
+        private Button button1;
+        private Label label7;
+        private TextBox tbBody;
+        private Label label5;
+        private Label label6;
+        private TextBox tbTitle;
+        private TextBox tbUserId;
     }
 }
