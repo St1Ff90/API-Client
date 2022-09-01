@@ -174,7 +174,6 @@ namespace API_Client
 
                 default:
                     break;
-
             }
         }
 
