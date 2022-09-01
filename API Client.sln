@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Client", "API Client\API Client.csproj", "{C78B22CA-4E22-4533-952E-748EFAAD4295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{78092411-C718-4195-B920-A796CCFEECBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C78B22CA-4E22-4533-952E-748EFAAD4295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78B22CA-4E22-4533-952E-748EFAAD4295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78B22CA-4E22-4533-952E-748EFAAD4295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78B22CA-4E22-4533-952E-748EFAAD4295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78092411-C718-4195-B920-A796CCFEECBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78092411-C718-4195-B920-A796CCFEECBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78092411-C718-4195-B920-A796CCFEECBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78092411-C718-4195-B920-A796CCFEECBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DCB088A-64EA-4D39-A7C9-C87EDF6F0D56}
+	EndGlobalSection
+EndGlobal
